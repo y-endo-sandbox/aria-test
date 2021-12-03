@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WAI-ARIAの挙動チェック</title>
+<style>
+.tooltip {
+  display: none;
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>WAI-ARIAの挙動チェック</h1>
+  <h2>aria-live="assertive"</h2>
+  <fieldset>
+    <legend>氏名</legend>
+    <p>フォーカスイベント</p>
+    <input type="text" placeholder="山田太郎" id="input-01">
+    <p aria-live="assertive" class="tooltip" id="tooltip-01">ツールチップテキスト</p>
+  </fieldset>
+  <fieldset>
+    <legend>氏名</legend>
+    <p>クリックイベント</p>
+    <input type="text" placeholder="山田太郎" id="input-02">
+    <p aria-live="assertive" class="tooltip" id="tooltip-02">ツールチップテキスト</p>
+  </fieldset>
+</main>
+<script>
+document.querySelector('#input-01').addEventListener('focus', function() {
+  // document.querySelector('#tooltip-01').textContent = 'あいうえお';
+  document.querySelector('#tooltip-01').style.display = 'block';
+});
+
+document.querySelector('#input-02').addEventListener('click', function() {
+  // document.querySelector('#tooltip-02').textContent = 'あいうえお';
+  document.querySelector('#tooltip-02').style.display = 'block';
+});
+</script>
+</body>
+</html>
