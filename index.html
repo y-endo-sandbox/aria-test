@@ -18,26 +18,25 @@
   <fieldset>
     <legend>氏名</legend>
     <p>フォーカスイベント</p>
-    <input type="text" placeholder="山田太郎" id="input-01">
-    <p aria-live="assertive" class="tooltip" id="tooltip-01">ツールチップテキスト</p>
+    <input type="text" placeholder="山田太郎" id="input-01" aria-describedby="tooltip-01">
+    <p class="tooltip" id="tooltip-01" role="alert" aria-live="polite">ツールチップテキスト</p>
   </fieldset>
-  <fieldset>
+  <!-- <fieldset>
     <legend>氏名</legend>
-    <p>クリックイベント</p>
-    <input type="text" placeholder="山田太郎" id="input-02">
-    <p aria-live="assertive" class="tooltip" id="tooltip-02">ツールチップテキスト</p>
-  </fieldset>
+    <p>フォーカスイベント（フォーカス後JSでrole="alert"を削除）</p>
+    <input type="text" placeholder="山田太郎" id="input-02" aria-describedby="tooltip-02">
+    <p class="tooltip" id="tooltip-02" role="alert" aria-live="polite">ツールチップテキスト</p>
+  </fieldset> -->
 </main>
 <script>
 document.querySelector('#input-01').addEventListener('focus', function() {
-  // document.querySelector('#tooltip-01').textContent = 'あいうえお';
   document.querySelector('#tooltip-01').style.display = 'block';
 });
 
-document.querySelector('#input-02').addEventListener('click', function() {
-  // document.querySelector('#tooltip-02').textContent = 'あいうえお';
-  document.querySelector('#tooltip-02').style.display = 'block';
-});
+// document.querySelector('#input-02').addEventListener('click', function() {
+//   document.querySelector('#tooltip-02').style.display = 'block';
+//   document.querySelector('#tooltip-02').removeAttribute('role', '');
+// });
 </script>
 </body>
 </html>
